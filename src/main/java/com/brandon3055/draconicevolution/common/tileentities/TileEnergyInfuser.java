@@ -67,11 +67,7 @@ public class TileEnergyInfuser extends TileObjectSync implements IEnergyReceiver
     private boolean tryStartOrStop() {
         if (items[0] != null && items[0].stackSize == 1 && items[0] != null && items[0].getItem() instanceof IEnergyContainerItem) {
             IEnergyContainerItem item = (IEnergyContainerItem) items[0].getItem();
-            if (item.getEnergyStored(items[0]) < item.getMaxEnergyStored(items[0])) {
-                running = true;
-            } else {
-                running = false;
-            }
+            running = item.getEnergyStored(items[0]) < item.getMaxEnergyStored(items[0]);
         } else {
             running = false;
         }
@@ -289,9 +285,7 @@ public class TileEnergyInfuser extends TileObjectSync implements IEnergyReceiver
     public boolean canExtractItem(int slot, ItemStack item, int side) {
         if (item == null || !(item.getItem() instanceof IEnergyContainerItem)) return true;
 
-        if ((((IEnergyContainerItem) item.getItem()).getEnergyStored(item) >= ((IEnergyContainerItem) item.getItem()).getMaxEnergyStored(item)) || ((IEnergyContainerItem) item.getItem()).receiveEnergy(item, 1, true) == 0)
-            return true;
-        else return false;
+        return (((IEnergyContainerItem) item.getItem()).getEnergyStored(item) >= ((IEnergyContainerItem) item.getItem()).getMaxEnergyStored(item)) || ((IEnergyContainerItem) item.getItem()).receiveEnergy(item, 1, true) == 0;
     }
 
     //===========================================================================================================//

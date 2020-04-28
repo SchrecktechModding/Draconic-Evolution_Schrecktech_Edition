@@ -11,7 +11,7 @@ import li.cil.oc.api.prefab.ManagedEnvironment;
  * Created by brandon3055 on 22/9/2015.
  */
 public class DEManagedPeripheral extends ManagedEnvironment implements ManagedPeripheral, NamedBlock {
-    private IDEPeripheral peripheral;
+    private final IDEPeripheral peripheral;
 
     public DEManagedPeripheral(IDEPeripheral peripheral) {
         this.peripheral = peripheral;

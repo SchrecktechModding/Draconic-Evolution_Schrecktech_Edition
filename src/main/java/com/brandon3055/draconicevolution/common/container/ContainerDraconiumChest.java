@@ -26,9 +26,9 @@ public class ContainerDraconiumChest extends Container {
      */
     public InventoryCrafting craftMatrix;
     public IInventory craftResult;
-    private TileDraconiumChest tile;
-    private EntityPlayer player;
-    private World worldObj;
+    private final TileDraconiumChest tile;
+    private final EntityPlayer player;
+    private final World worldObj;
 
     private int lastProgressTime;
     /**

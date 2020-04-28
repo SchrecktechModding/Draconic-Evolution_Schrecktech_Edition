@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerGrinder extends ContainerDataSync {
 
-    private TileGrinder tile;
+    private final TileGrinder tile;
     private int energyCach = -1;
     private int energy2Cach = -1;
     private int burnCach = -1;

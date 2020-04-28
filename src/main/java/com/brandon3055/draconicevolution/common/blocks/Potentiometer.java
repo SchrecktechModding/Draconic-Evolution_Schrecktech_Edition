@@ -22,7 +22,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public class Potentiometer extends BlockDE {
-    IIcon icons[] = new IIcon[16];
+    IIcon[] icons = new IIcon[16];
 
     public Potentiometer() {
         super(Material.circuits);
@@ -248,11 +248,11 @@ public class Potentiometer extends BlockDE {
         TilePotentiometer tile = (TilePotentiometer) world.getTileEntity(x, y, z);
 
         if (tile != null && tile instanceof TilePotentiometer) {
-            if (!player.isSneaking()) ((TilePotentiometer) tile).increasePower();
-            else ((TilePotentiometer) tile).decreasePower();
+            if (!player.isSneaking()) tile.increasePower();
+            else tile.decreasePower();
 
             if (world.isRemote)
-                player.addChatMessage(new ChatComponentText(String.valueOf(((TilePotentiometer) tile).power)));
+                player.addChatMessage(new ChatComponentText(String.valueOf(tile.power)));
             world.markBlockRangeForRenderUpdate(x, y, z, x, y, z);
         } else System.out.println("Invalid tile");
         return true;

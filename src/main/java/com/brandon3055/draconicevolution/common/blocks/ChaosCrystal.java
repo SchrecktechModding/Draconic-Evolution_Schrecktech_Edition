@@ -93,8 +93,8 @@ public class ChaosCrystal extends BlockDE {
         entity.attackEntityFrom(punishment, Float.MAX_VALUE);
     }
 
-    private static String[] naughtyList = new String[]{"item.blockMover", "tile.CardboardBox", "item.WandCasting"};
-    private static DamageSource punishment = new DamageSource("chrystalMoved").setDamageAllowedInCreativeMode().setDamageBypassesArmor().setDamageIsAbsolute();
+    private static final String[] naughtyList = new String[]{"item.blockMover", "tile.CardboardBox", "item.WandCasting"};
+    private static final DamageSource punishment = new DamageSource("chrystalMoved").setDamageAllowedInCreativeMode().setDamageBypassesArmor().setDamageIsAbsolute();
 
     @Override
     public void onBlockAdded(World world, int x, int y, int z) {

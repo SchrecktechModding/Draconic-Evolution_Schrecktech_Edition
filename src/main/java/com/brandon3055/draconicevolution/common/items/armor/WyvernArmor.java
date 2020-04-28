@@ -51,8 +51,8 @@ public class WyvernArmor extends ItemArmor implements ISpecialArmor, IConfigurab
     @SideOnly(Side.CLIENT)
     private IIcon bootsIcon;
 
-    private int maxEnergy = BalanceConfigHandler.wyvernArmorBaseStorage;
-    private int maxTransfer = BalanceConfigHandler.wyvernArmorMaxTransfer;
+    private final int maxEnergy = BalanceConfigHandler.wyvernArmorBaseStorage;
+    private final int maxTransfer = BalanceConfigHandler.wyvernArmorMaxTransfer;
 
     public WyvernArmor(ArmorMaterial material, int armorType, String name) {
         super(material, 0, armorType);

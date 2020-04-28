@@ -1,30 +1,25 @@
 package com.brandon3055.draconicevolution.common.handler;
 
+import com.brandon3055.brandonscore.common.utills.ItemNBTHelper;
 import com.brandon3055.draconicevolution.common.ModBlocks;
 import com.brandon3055.draconicevolution.common.ModItems;
-import com.brandon3055.brandonscore.common.utills.ItemNBTHelper;
 import com.brandon3055.draconicevolution.common.utills.LogHelper;
 import com.brandon3055.draconicevolution.common.utills.ShapedOreEnergyRecipe;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
+import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
-import gregtech.common.items.GT_MetaGenerated_Item_01;
-import ic2.api.item.IC2Items;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
+import gregtech.api.util.GT_OreDictUnificator;
 import ic2.core.Ic2Items;
-import ic2.core.item.armor.ItemArmorQuantumSuit;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import tconstruct.items.tools.Pickaxe;
-import tconstruct.tools.TinkerTools;
-
-import static com.brandon3055.draconicevolution.integration.ModHelper.isTConInstalled;
 
 public class CraftingHandler {
     public static void init() {
@@ -34,6 +29,7 @@ public class CraftingHandler {
         ItemNBTHelper.setString(mobSoul, "Name", "Any");
 
         if (true) {//enable Schrecktech
+            System.out.println("Schrecktech Mode Enabled");
             //Components Key[C=Corner, S=Side, M=Middle ]
             addOre(ModItems.draconicCore, "CSC", "SMS", "CSC", 'C', "ingotGold", 'S', ModItems.draconiumIngot, 'M', "gemDiamond");
             add(ModItems.wyvernCore, "CSC", "SMS", "CSC", 'C', ModItems.draconiumIngot, 'S', ModItems.draconicCore, 'M', Items.nether_star);
@@ -70,14 +66,13 @@ public class CraftingHandler {
             addOre(ModBlocks.reactorCore, " I ", "ISI", " I ", 'I', "ingotDraconiumAwakened", 'S', ModItems.chaosShard);
 
             //tool
-            System.out.println("Schrecktech Mode Enabled");
             //Wyvern tools
             add(ModItems.wyvernFluxCapacitor, "CSC", "SMS", "CSC", 'C', ModItems.draconiumIngot, 'S', ModItems.wyvernEnergyCore, 'M', ModItems.wyvernCore);
             //tool
-            add(ModItems.wyvernPickaxe, " W ", "ITI", " E ", 'W', ModItems.wyvernCore, 'I', ModItems.draconiumIngot, 'T', Items.diamond_pickaxe, 'E', ModItems.wyvernEnergyCore);
-            add(ModItems.wyvernShovel, " W ", "ITI", " E ", 'W', ModItems.wyvernCore, 'I', ModItems.draconiumIngot, 'T', Items.diamond_shovel, 'E', ModItems.wyvernEnergyCore);
-            add(ModItems.wyvernSword, " W ", "ITI", " E ", 'W', ModItems.wyvernCore, 'I', ModItems.draconiumIngot, 'T', Items.diamond_sword, 'E', ModItems.wyvernEnergyCore);
-            add(ModItems.wyvernBow, " W ", "ITI", " E ", 'W', ModItems.wyvernCore, 'I', ModItems.draconiumIngot, 'T', Items.bow, 'E', ModItems.wyvernEnergyCore);
+            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{new ItemStack(ModItems.wyvernCore), new ItemStack(ModItems.draconiumIngot, 2), GT_OreDictUnificator.get(OrePrefixes.toolHeadPickaxe, Materials.get("Titanium"), 1), ModItems.wyvernEnergyCore}, null, new ItemStack(ModItems.wyvernPickaxe), 1600, 200);
+            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{new ItemStack(ModItems.wyvernCore), new ItemStack(ModItems.draconiumIngot, 2), GT_OreDictUnificator.get(OrePrefixes.toolHeadShovel, Materials.get("Titanium"), 1), ModItems.wyvernEnergyCore}, null, new ItemStack(ModItems.wyvernShovel), 1600, 200);
+            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{new ItemStack(ModItems.wyvernCore), new ItemStack(ModItems.draconiumIngot, 2), GT_OreDictUnificator.get(OrePrefixes.toolHeadSword, Materials.get("Titanium"), 1), ModItems.wyvernEnergyCore}, null, new ItemStack(ModItems.wyvernSword), 1600, 200);
+            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{new ItemStack(ModItems.wyvernCore), new ItemStack(ModItems.draconiumIngot, 2), new ItemStack(Items.bow, 1), ModItems.wyvernEnergyCore}, null, new ItemStack(ModItems.wyvernBow), 1600, 200);
             addOre(new ItemStack(ModItems.magnet, 1, 0), "RII", "  C", "RII", 'R', Blocks.redstone_block, 'I', "ingotIron", 'C', ModItems.teleporterMKI);
 
             //armor
@@ -85,7 +80,6 @@ public class CraftingHandler {
             addOre(ModItems.wyvernChest, "PWP", "IAI", "PEP", 'W', ModItems.wyvernCore, 'I', ModItems.draconiumIngot, 'A', Ic2Items.quantumBodyarmor, 'E', ModItems.wyvernEnergyCore, 'P', "plateNeutronium");
             addOre(ModItems.wyvernLeggs, "PWP", "IAI", "PEP", 'W', ModItems.wyvernCore, 'I', ModItems.draconiumIngot, 'A', Ic2Items.quantumLeggings, 'E', ModItems.wyvernEnergyCore, 'P', "plateNeutronium");
             addOre(ModItems.wyvernBoots, "PWP", "IAI", "PEP", 'W', ModItems.wyvernCore, 'I', ModItems.draconiumIngot, 'A', Ic2Items.quantumBoots, 'E', ModItems.wyvernEnergyCore, 'P', "plateNeutronium");
-
 
             //Draconic Tools
             addEnergy(ModItems.draconicFluxCapacitor, "CMC", "SPS", "CSC", 'C', "ingotDraconiumAwakened", 'S', ModItems.draconicEnergyCore, 'M', ModItems.awakenedCore, 'P', ModItems.wyvernFluxCapacitor);

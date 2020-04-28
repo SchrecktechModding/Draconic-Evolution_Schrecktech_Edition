@@ -15,12 +15,12 @@ public class ReactorExplosion implements IProcess {
 
     public static DamageSource fusionExplosion = new DamageSource("damage.de.fusionExplode").setExplosion().setDamageBypassesArmor().setDamageIsAbsolute().setDamageAllowedInCreativeMode();
 
-    private World worldObj;
-    private int xCoord;
-    private int yCoord;
-    private int zCoord;
-    private float power;
-    private Random random = new Random();
+    private final World worldObj;
+    private final int xCoord;
+    private final int yCoord;
+    private final int zCoord;
+    private final float power;
+    private final Random random = new Random();
 
     private double expansion = 0;
 

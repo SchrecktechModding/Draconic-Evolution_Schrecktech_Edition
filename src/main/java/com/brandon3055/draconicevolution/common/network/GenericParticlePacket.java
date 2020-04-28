@@ -43,9 +43,9 @@ public class GenericParticlePacket implements IMessage {
     @Override
     public void fromBytes(ByteBuf bytes) {
         this.particleId = bytes.readByte();
-        this.posX = (double) bytes.readFloat();
-        this.posY = (double) bytes.readFloat();
-        this.posZ = (double) bytes.readFloat();
+        this.posX = bytes.readFloat();
+        this.posY = bytes.readFloat();
+        this.posZ = bytes.readFloat();
 
         if (particleId == ARROW_SHOCK_WAVE) {
             this.additionalData = bytes.readInt();

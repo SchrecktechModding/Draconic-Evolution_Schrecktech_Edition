@@ -82,7 +82,7 @@ public class AdminSpawnEgg extends ItemDE {
         Entity entity = EntityList.createEntityByName(name, world);
         compound.removeTag("EntityName");
         compound.removeTag("IsSet");
-        if (entity instanceof EntityLivingBase) ((EntityLivingBase) entity).readFromNBT(compound);
+        if (entity instanceof EntityLivingBase) entity.readFromNBT(compound);
         double sX = x + ForgeDirection.getOrientation(side).offsetX + 0.5;
         double sY = y + ForgeDirection.getOrientation(side).offsetY + 0.5;
         double sZ = z + ForgeDirection.getOrientation(side).offsetZ + 0.5;

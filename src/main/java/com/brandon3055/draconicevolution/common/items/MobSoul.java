@@ -56,7 +56,7 @@ public class MobSoul extends ItemDE {
         entity.setLocationAndAngles(sX, sY, sZ, player.rotationYaw, 0F);
 
         if (entity instanceof EntityLivingBase && !world.isRemote) {
-            ((EntityLiving) entity).onSpawnWithEgg((IEntityLivingData) null);
+            ((EntityLiving) entity).onSpawnWithEgg(null);
             world.spawnEntityInWorld(entity);
             if (!player.capabilities.isCreativeMode) {
                 stack.stackSize--;

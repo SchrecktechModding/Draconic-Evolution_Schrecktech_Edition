@@ -10,7 +10,7 @@ import dan200.computercraft.api.peripheral.IPeripheral;
  * Created by brandon3055 on 21/9/2015.
  */
 public class CCAdapter implements IPeripheral {
-    private IDEPeripheral peripheral;
+    private final IDEPeripheral peripheral;
 
     public CCAdapter(IDEPeripheral peripheral) {
         this.peripheral = peripheral;

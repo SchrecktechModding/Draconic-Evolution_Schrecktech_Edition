@@ -73,7 +73,7 @@ public class ConfigHandler {
     public static double reactorFuelUsageMultiplier;
 
 
-    private static String[] defaultSpawnerList = new String[]{"ExampleMob1", "ExampleMob2", "ExampleMob3 (these examples can be deleted)"};
+    private static final String[] defaultSpawnerList = new String[]{"ExampleMob1", "ExampleMob2", "ExampleMob3 (these examples can be deleted)"};
 
     public static void init(File confFile) {
         if (config == null) {

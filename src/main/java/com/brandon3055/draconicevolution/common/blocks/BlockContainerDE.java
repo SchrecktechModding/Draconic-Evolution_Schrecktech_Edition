@@ -38,6 +38,6 @@ public class BlockContainerDE extends BlockDE implements ITileEntityProvider {
     public boolean onBlockEventReceived(World world, int x, int y, int z, int p_149696_5_, int p_149696_6_) {
         super.onBlockEventReceived(world, x, y, z, p_149696_5_, p_149696_6_);
         TileEntity tileentity = world.getTileEntity(x, y, z);
-        return tileentity != null ? tileentity.receiveClientEvent(p_149696_5_, p_149696_6_) : false;
+        return tileentity != null && tileentity.receiveClientEvent(p_149696_5_, p_149696_6_);
     }
 }

@@ -709,7 +709,7 @@ public class TileEnergyStorageCore extends TileObjectSync {
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         online = compound.getBoolean("Online");
-        tier = (int) compound.getShort("Tier");
+        tier = compound.getShort("Tier");
         energy = compound.getLong("EnergyL");
         if (compound.hasKey("Energy")) energy = (long) compound.getDouble("Energy");
         for (int i = 0; i < stabilizers.length; i++) {

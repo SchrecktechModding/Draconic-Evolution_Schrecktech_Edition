@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public class WorldGenChaosIsland {
 
-    private int spawnHeight = 128;
+    private final int spawnHeight = 128;
     private int size;
     private BlockCollection blockCollection;
     public boolean initialized = false;

@@ -10,7 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 public class TilePlayerDetector extends TileEntity {
     private int tick = 0;
     public boolean output = false;
-    private int scanRate = 5;
+    private final int scanRate = 5;
     private int range = 1;
 
     @Override

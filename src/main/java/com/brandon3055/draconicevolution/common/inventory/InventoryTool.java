@@ -20,7 +20,7 @@ public class InventoryTool implements IInventory {
     public int size;
     public ItemStack inventoryItem;
     private ItemStack[] inventoryStacks;
-    private EntityPlayer player;
+    private final EntityPlayer player;
     private ContainerAdvTool container;
     private int slot = -1;
 

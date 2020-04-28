@@ -133,7 +133,7 @@ public class ItemConfigField {
                 return (double) l;
             case References.FLOAT_ID:
                 float f = (Float) value;
-                return (double) f;
+                return f;
             case References.DOUBLE_ID:
                 return (Double) value;
             case References.BOOLEAN_ID:
@@ -155,7 +155,7 @@ public class ItemConfigField {
                 return (double) l;
             case References.FLOAT_ID:
                 float f = (Float) min;
-                return (double) f;
+                return f;
             case References.DOUBLE_ID:
                 return (Double) min;
             case References.BOOLEAN_ID:
@@ -177,7 +177,7 @@ public class ItemConfigField {
                 return (double) l;
             case References.FLOAT_ID:
                 float f = (Float) max;
-                return (double) f;
+                return f;
             case References.DOUBLE_ID:
                 return (Double) max;
             case References.BOOLEAN_ID:

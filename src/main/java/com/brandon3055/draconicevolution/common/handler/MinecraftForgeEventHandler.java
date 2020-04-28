@@ -150,7 +150,7 @@ public class MinecraftForgeEventHandler {
         CustomArmorHandler.ArmorSummery summery = new CustomArmorHandler.ArmorSummery().getSummery(player);
 
         if (summery != null && summery.jumpModifier > 0) {
-            player.motionY += (double) (summery.jumpModifier * 0.1F);
+            player.motionY += summery.jumpModifier * 0.1F;
         }
     }
 
@@ -241,11 +241,7 @@ public class MinecraftForgeEventHandler {
                 return false;
             }
         }
-        if (ConfigHandler.spawnerListType) {
-            return false;
-        } else {
-            return true;
-        }
+        return !ConfigHandler.spawnerListType;
     }
 
     private boolean changeBlock(ExtendedBlockStorage storage, int x, int y, int z) {

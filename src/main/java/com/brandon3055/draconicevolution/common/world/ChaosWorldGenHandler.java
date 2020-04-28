@@ -257,7 +257,7 @@ public class ChaosWorldGenHandler {
     public static class CrystalRemover implements IProcess {
         private boolean dead = false;
 
-        private Entity entity;
+        private final Entity entity;
         private int delay = 2;
 
         public CrystalRemover(Entity entity) {

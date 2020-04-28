@@ -16,12 +16,12 @@ public interface IUpgradableItem {
     /**
      * @return a list of upgrades for this item.
      */
-    public List<EnumUpgrade> getUpgrades(ItemStack itemstack);
+    List<EnumUpgrade> getUpgrades(ItemStack itemstack);
 
     /**
      * @return the maximum number of upgrades for this item
      */
-    public int getUpgradeCap(ItemStack itemstack);
+    int getUpgradeCap(ItemStack itemstack);
 
     /**
      * @return the max upgrade tier allowed for this item
@@ -30,17 +30,17 @@ public interface IUpgradableItem {
      * 2 = Awakened Core
      * 3 = Chaotic Core
      */
-    public int getMaxTier(ItemStack itemstack);
+    int getMaxTier(ItemStack itemstack);
 
-    public int getMaxUpgradePoints(int upgradeIndex);
+    int getMaxUpgradePoints(int upgradeIndex);
 
-    public int getMaxUpgradePoints(int upgradeIndex, ItemStack stack);
+    int getMaxUpgradePoints(int upgradeIndex, ItemStack stack);
 
-    public int getBaseUpgradePoints(int upgradeIndex);
+    int getBaseUpgradePoints(int upgradeIndex);
 
-    public List<String> getUpgradeStats(ItemStack itemstack);
+    List<String> getUpgradeStats(ItemStack itemstack);
 
-    public static enum EnumUpgrade {
+    enum EnumUpgrade {
         RF_CAPACITY(0, 1, "RFCapacity") {
             @Override
             public void onRemovedFromItem(ItemStack itemStack) {
@@ -138,7 +138,7 @@ public interface IUpgradableItem {
         public String name;
         private final String COMPOUND_NAME = "Upgrades";
 
-        private EnumUpgrade(int index, int pointConversion, String name) {
+        EnumUpgrade(int index, int pointConversion, String name) {
             this.index = index;
             this.pointConversion = pointConversion;
             this.name = name;

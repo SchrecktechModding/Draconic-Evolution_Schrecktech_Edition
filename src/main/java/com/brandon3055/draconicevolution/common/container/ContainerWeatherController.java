@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerWeatherController extends Container {
 
-    private TileWeatherController tileWC;
+    private final TileWeatherController tileWC;
 
     public ContainerWeatherController(InventoryPlayer invPlayer, TileWeatherController tileWC) {
         this.tileWC = tileWC;

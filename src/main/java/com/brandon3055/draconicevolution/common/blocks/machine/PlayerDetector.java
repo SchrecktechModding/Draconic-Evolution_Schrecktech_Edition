@@ -79,8 +79,7 @@ public class PlayerDetector extends BlockDE {
 
     @Override
     public boolean canConnectRedstone(IBlockAccess world, int x, int y, int z, int side) {
-        if (side == 0 || side == 1) return false;
-        else return true;
+        return side != 0 && side != 1;
     }
 
     @Override

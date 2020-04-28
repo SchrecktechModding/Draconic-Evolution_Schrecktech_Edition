@@ -46,7 +46,7 @@ public class ToolBase extends RFItemBase {
     /**
      * A list of blocks this tool can mine that are not covered by the tool class.
      */
-    private Set blockOverrides;
+    private final Set blockOverrides;
     private float efficiencyOnProperMaterial = 4.0F;
     /**
      * Damage versus entities.

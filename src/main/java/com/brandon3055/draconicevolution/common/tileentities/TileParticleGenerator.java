@@ -92,8 +92,7 @@ public class TileParticleGenerator extends TileEntity implements IDEPeripheral {
         if (stabalizerMode) return;
 
         if (signal && !inverted) active = true;
-        else if (!signal && inverted) active = true;
-        else active = false;
+        else active = !signal && inverted;
 
         if (tick >= spawn_rate && active && particles_enabled) {
             tick = 0;

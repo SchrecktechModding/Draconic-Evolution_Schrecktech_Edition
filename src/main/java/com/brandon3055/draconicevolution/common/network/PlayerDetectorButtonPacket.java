@@ -37,7 +37,7 @@ public class PlayerDetectorButtonPacket implements IMessage {
         @Override
         public IMessage onMessage(PlayerDetectorButtonPacket message, MessageContext ctx) {
             ContainerPlayerDetector container = (ctx.getServerHandler().playerEntity.openContainer instanceof ContainerPlayerDetector) ? (ContainerPlayerDetector) ctx.getServerHandler().playerEntity.openContainer : null;
-            TilePlayerDetectorAdvanced tile = (container != null) ? ((ContainerPlayerDetector) container).getTileDetector() : null;
+            TilePlayerDetectorAdvanced tile = (container != null) ? container.getTileDetector() : null;
 
             if (tile != null) {
                 switch (message.index) {

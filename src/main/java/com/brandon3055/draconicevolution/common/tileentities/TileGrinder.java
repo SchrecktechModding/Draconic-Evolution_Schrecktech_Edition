@@ -41,7 +41,7 @@ public class TileGrinder extends TileObjectSync implements ISidedInventory, IEne
     public double centreX;
     public double centreY = -1;
     public double centreZ;
-    private ItemStack[] items;
+    private final ItemStack[] items;
     public int burnTime = 1;
     public int burnTimeRemaining = 0;
     public boolean disabled = false;
@@ -52,7 +52,7 @@ public class TileGrinder extends TileObjectSync implements ISidedInventory, IEne
     public EnergyStorage internalGenBuffer = new EnergyStorage(BalanceConfigHandler.grinderInternalEnergyBufferSize, BalanceConfigHandler.grinderMaxReceive, 0);
     public EnergyStorage externalInputBuffer = new EnergyStorage(BalanceConfigHandler.grinderExternalEnergyBufferSize, BalanceConfigHandler.grinderMaxReceive, 0);
     public int energyPerKill = BalanceConfigHandler.grinderEnergyPerKill;
-    private ItemStack diamondSword;
+    private final ItemStack diamondSword;
     public static FakePlayer fakePlayer;
 
     public void updateVariables() {

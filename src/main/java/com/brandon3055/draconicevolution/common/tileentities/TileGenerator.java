@@ -23,17 +23,17 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class TileGenerator extends TileObjectSync implements ISidedInventory, IEnergyProvider {
     //########### variables #############//
-    private ItemStack[] items;
+    private final ItemStack[] items;
     public int burnTime = 1;
     public int burnTimeRemaining = 0;
-    private int burnSpeed = 6;
+    private final int burnSpeed = 6;
     public boolean isBurning = false;
     public boolean isBurningCach = false;
     private int tick;
     /**
      * Energy per burn tick
      */
-    private int EPBT = 14;
+    private final int EPBT = 14;
     public EnergyStorage storage = new EnergyStorage(100000, 0, 1000);
 
     //##################################//

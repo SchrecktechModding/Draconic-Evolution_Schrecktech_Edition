@@ -40,7 +40,7 @@ public class Generator extends BlockCustomDrop {
     public IIcon icon_back;
     public IIcon icon_back_inactive;
     public IIcon icon_front_inactive;
-    public IIcon icon_top[] = new IIcon[4];
+    public IIcon[] icon_top = new IIcon[4];
 
     public Generator() {
         super(Material.iron);

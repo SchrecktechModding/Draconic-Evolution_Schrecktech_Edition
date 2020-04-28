@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerSunDial extends Container {
 
-    private TileSunDial tile;
+    private final TileSunDial tile;
 
     public ContainerSunDial(InventoryPlayer invPlayer, TileSunDial tile) {
         this.tile = tile;

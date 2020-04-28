@@ -1,67 +1,67 @@
 buildscript {
-    repositories {
-        mavenCentral()
-        jcenter()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-        classpath 'de.undercouch:gradle-download-task:3.2.0'
-        classpath "com.wynprice.cursemaven:CurseMaven:2.1.1"
-    }
+	repositories {
+		mavenCentral()
+		jcenter()
+		maven {
+			name = "forge"
+			url = "http://files.minecraftforge.net/maven"
+		}
+		maven {
+			name = "sonatype"
+			url = "https://oss.sonatype.org/content/repositories/snapshots/"
+		}
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+	dependencies {
+		classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+		classpath 'de.undercouch:gradle-download-task:3.2.0'
+		classpath "com.wynprice.cursemaven:CurseMaven:2.1.1"
+	}
 }
 
 repositories {
-    maven {
-        name 'CB Maven FS'
-        url "http://chickenbones.net/maven/"
-    }
-    maven {
-        name 'Curseforge Maven'
-        url 'http://minecraft.curseforge.com/api/maven/'
-    }
-    maven {
-        name 'progwml6'
-        url 'https://dvs1.progwml6.com/files/maven/'
-    }
-    maven {
-        name 'IC2'
-        url 'http://maven.ic2.player.to/net/'
-    }
+	maven {
+		name 'CB Maven FS'
+		url "http://chickenbones.net/maven/"
+	}
+	maven {
+		name 'Curseforge Maven'
+		url 'http://minecraft.curseforge.com/api/maven/'
+	}
+	maven {
+		name 'progwml6'
+		url 'https://dvs1.progwml6.com/files/maven/'
+	}
+	maven {
+		name 'IC2'
+		url 'http://maven.ic2.player.to/net/'
+	}
 }
 
 // Because Forge is too stupid to fix Deprecation Issues, and we cannot fix it on our end! (until we fork Forge)
 allprojects {
-    tasks.withType(JavaCompile) {
-        options.compilerArgs << "-Xlint:deprecation"
-    }
+	tasks.withType(JavaCompile) {
+		options.compilerArgs << "-Xlint:deprecation"
+	}
 }
 
 apply plugin: 'eclipse'
 eclipse {
-    classpath {
-        downloadJavadoc = true
-        downloadSources = true
-    }
+	classpath {
+		downloadJavadoc = true
+		downloadSources = true
+	}
 }
 
 apply plugin: 'idea'
 idea {
-    module {
-        downloadJavadoc = true
-        downloadSources = true
-        inheritOutputDirs = true
-    }
+	module {
+		downloadJavadoc = true
+		downloadSources = true
+		inheritOutputDirs = true
+	}
 }
 
 apply plugin: 'forge'
@@ -71,72 +71,73 @@ apply plugin: "com.wynprice.cursemaven"
 ext.configFile = file "build.properties"
 
 configFile.withReader {
-    // Load config.  It shall from now be referenced as simply config or project.config
-    def prop = new Properties()
-    prop.load(it)
-    project.ext.config = new ConfigSlurper().parse prop
+	// Load config.  It shall from now be referenced as simply config or project.config
+	def prop = new Properties()
+	prop.load(it)
+	project.ext.config = new ConfigSlurper().parse prop
 }
 
 version = "${config.minecraft_version}-${config.mod_version}"
 group = "com.brandon3055.draconicevolution"
-archivesBaseName = "Draconic-Evolution"
+archivesBaseName = "Draconic-Evolution-Schrecktech-Reborn²-Edition"
 
 minecraft {
-    version = config.minecraft_version + "-" + config.forge_version
-    runDir = "run"
+	version = config.minecraft_version + "-" + config.forge_version
+	runDir = "run"
 }
 
 
 dependencies {
-    compile "codechicken:CodeChickenLib:${config.minecraft_version}-${config.CCLIB_version}:dev"
-    compile "codechicken:CodeChickenCore:${config.minecraft_version}-${config.ccc_version}:dev"
-    compile "codechicken:NotEnoughItems:${config.minecraft_version}-${config.NEI_version}:dev"
-    compile "thaumcraft:Thaumcraft:${config.minecraft_version}:4.2.3.5"
-    compile "baubles:Baubles:${config.minecraft_version}:1.0.1.10"
-    compile "curse.maven:ComputerCraft1.75:2269339"
+	compile "codechicken:CodeChickenLib:${config.minecraft_version}-${config.CCLIB_version}:dev"
+	compile "codechicken:CodeChickenCore:${config.minecraft_version}-${config.ccc_version}:dev"
+	compile "codechicken:NotEnoughItems:${config.minecraft_version}-${config.NEI_version}:dev"
+	compile "thaumcraft:Thaumcraft:${config.minecraft_version}:4.2.3.5"
+	compile "baubles:Baubles:${config.minecraft_version}:1.0.1.10"
+	compile "curse.maven:ComputerCraft1.75:2269339"
 //  compile "oc:OpenComputers:MC${config.minecraft_version}-1.7.5.1290:dev" incorrect repo
-    compile "curse.maven:OpenComputers-MC1.7.10-1.7.5.1290-universal:2828353" //todo
-    compile "tconstruct:TConstruct:${config.minecraft_version}-1.8.8.build991"
-    compile "curse.maven:gregtech-5.09.31:2479882"
-    compile "industrial-craft:industrialcraft-2:2.2.828-experimental:dev"
+	compile "curse.maven:OpenComputers-MC1.7.10-1.7.5.1290-universal:2828353" //todo
+//	compile "tconstruct:TConstruct:${config.minecraft_version}-1.8.8.build991"
+	compile "curse.maven:gregtech-5.09.31-dev:2479883"
+	compile files("lib/GT-PlusPlus-1.7.05.19")
+	compile "industrial-craft:industrialcraft-2:2.2.828-experimental:dev"
 
-    if (file('../BrandonsCore/').exists()) compile project('../BrandonsCore')
+	if (file('../BrandonsCore/').exists()) compile project('../BrandonsCore')
 }
 
 processResources
-        {
-            // this will ensure that this task is redone when the versions change.
-            inputs.property "version", project.version
-            inputs.property "mcversion", project.minecraft.version
+		{
+			// this will ensure that this task is redone when the versions change.
+			inputs.property "version", project.version
+			inputs.property "mcversion", project.minecraft.version
 
-            // replace stuff in mcmod.info, nothing else
-            from(sourceSets.main.resources.srcDirs) {
-                include 'mcmod.info'
+			// replace stuff in mcmod.info, nothing else
+			from(sourceSets.main.resources.srcDirs) {
+				include 'mcmod.info'
 
-                // replace version and mcversion
-                expand 'version': project.version, 'mcversion': project.minecraft.version
-            }
+				// replace version and mcversion
+				expand 'version': project.version, 'mcversion': project.minecraft.version
+			}
 
-            // copy everything else, thats not the mcmod.info
-            from(sourceSets.main.resources.srcDirs) {
-                exclude 'mcmod.info'
-            }
-        }
+			// copy everything else, thats not the mcmod.info
+			from(sourceSets.main.resources.srcDirs) {
+				exclude 'mcmod.info'
+			}
+		}
 
 task deobfJar(type: Jar) { // Generate deobfuscated
-    from sourceSets.main.output
-    classifier = 'deobf'
+	from sourceSets.main.output
+	classifier = 'deobf'
 }
 
 task sourceJar(type: Jar) { // Generate sources
-    from sourceSets.main.allSource
-    classifier = 'sources'
+	from sourceSets.main.allSource
+	classifier = 'sources'
 }
 
 tasks.build.dependsOn('sourceJar', 'deobfJar')
 
 artifacts {
-    archives deobfJar
-    archives sourceJar
-    archives jar
+	archives deobfJar
+	archives sourceJar
+	archives jar
 }

@@ -29,8 +29,8 @@ import java.util.Random;
  */
 public class TileEnderResurrection extends TileEntity {
 
-    private MultiblockHelper.TileLocation diamondPillars[] = new MultiblockHelper.TileLocation[4];
-    private MultiblockHelper.TileLocation draconiumPillars[] = new MultiblockHelper.TileLocation[4];
+    private final MultiblockHelper.TileLocation[] diamondPillars = new MultiblockHelper.TileLocation[4];
+    private final MultiblockHelper.TileLocation[] draconiumPillars = new MultiblockHelper.TileLocation[4];
     private ExtendedPlayer playerProps;
     private EntityPlayer owner;
     private boolean spawnInProgress = false;
@@ -221,9 +221,7 @@ public class TileEnderResurrection extends TileEntity {
     private boolean isBaseValid() {
         if (worldObj.getBlock(xCoord + 1, yCoord, zCoord) != Blocks.obsidian || worldObj.getBlock(xCoord - 1, yCoord, zCoord) != Blocks.obsidian || worldObj.getBlock(xCoord, yCoord, zCoord + 1) != Blocks.obsidian || worldObj.getBlock(xCoord, yCoord, zCoord - 1) != Blocks.obsidian)
             return false;
-        if (worldObj.getBlock(xCoord + 1, yCoord, zCoord + 1) != Blocks.glowstone || worldObj.getBlock(xCoord - 1, yCoord, zCoord - 1) != Blocks.glowstone || worldObj.getBlock(xCoord - 1, yCoord, zCoord + 1) != Blocks.glowstone || worldObj.getBlock(xCoord + 1, yCoord, zCoord - 1) != Blocks.glowstone)
-            return false;
-        return true;
+        return worldObj.getBlock(xCoord + 1, yCoord, zCoord + 1) == Blocks.glowstone && worldObj.getBlock(xCoord - 1, yCoord, zCoord - 1) == Blocks.glowstone && worldObj.getBlock(xCoord - 1, yCoord, zCoord + 1) == Blocks.glowstone && worldObj.getBlock(xCoord + 1, yCoord, zCoord - 1) == Blocks.glowstone;
     }
 
     private boolean arePillarsValid() {
@@ -328,11 +326,9 @@ public class TileEnderResurrection extends TileEntity {
      */
     private boolean isPillarValid(int type, int x, int y, int z) {
         if (type == 0) {
-            if (worldObj.getBlock(x, y - 1, z) == Blocks.quartz_block && worldObj.getBlock(x, y - 2, z) == Blocks.quartz_block && worldObj.getBlockMetadata(x, y - 1, z) == 2 && worldObj.getBlockMetadata(x, y - 2, z) == 2)
-                return true;
+            return worldObj.getBlock(x, y - 1, z) == Blocks.quartz_block && worldObj.getBlock(x, y - 2, z) == Blocks.quartz_block && worldObj.getBlockMetadata(x, y - 1, z) == 2 && worldObj.getBlockMetadata(x, y - 2, z) == 2;
         } else if (type == 1) {
-            if (worldObj.getBlock(x, y - 1, z) == Blocks.quartz_block && worldObj.getBlockMetadata(x, y - 1, z) == 2)
-                return true;
+            return worldObj.getBlock(x, y - 1, z) == Blocks.quartz_block && worldObj.getBlockMetadata(x, y - 1, z) == 2;
         }
         return false;
     }

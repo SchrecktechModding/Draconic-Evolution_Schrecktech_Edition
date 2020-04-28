@@ -8,15 +8,15 @@ public interface IDEPeripheral {
     /**
      * Get the unique name for this peripheral type
      */
-    public String getName();
+    String getName();
 
     /**
      * Get a list of methods for this peripheral
      */
-    public String[] getMethodNames();
+    String[] getMethodNames();
 
     /**
      * Call a method
      */
-    public Object[] callMethod(String method, Object... args);
+    Object[] callMethod(String method, Object... args);
 }

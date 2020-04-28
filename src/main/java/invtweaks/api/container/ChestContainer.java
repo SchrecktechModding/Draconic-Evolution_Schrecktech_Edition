@@ -23,6 +23,6 @@ public @interface ChestContainer {
     // Signature int func()
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.METHOD)
-    public @interface RowSizeCallback {
+    @interface RowSizeCallback {
     }
 }

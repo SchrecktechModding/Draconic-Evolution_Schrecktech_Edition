@@ -12,7 +12,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class ContainerGenerator extends ContainerDataSync {
 
-    private TileGenerator tile;
+    private final TileGenerator tile;
     private int energyCach = -1;
     private int burnCach = -1;
     private int burnRemainingCach = -1;

@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerTemplate extends Container {
 
-    private TileContainerTemplate tile;
-    private EntityPlayer player;
+    private final TileContainerTemplate tile;
+    private final EntityPlayer player;
 
     public ContainerTemplate(InventoryPlayer invPlayer, TileContainerTemplate tile) {
         this.tile = tile;

@@ -29,7 +29,7 @@ public class DraconiumBlock extends BlockDE {
     private final int DRACONIUM_META = 0;
     private final int SUMMON_BLOCK_META = 1;
     private final int CHARGED_DRACONIUM_META = 2;
-    IIcon icons[] = new IIcon[3];
+    IIcon[] icons = new IIcon[3];
 
     public DraconiumBlock() {
         this.setHardness(10F);
@@ -96,8 +96,7 @@ public class DraconiumBlock extends BlockDE {
 
     @Override
     public boolean hasTileEntity(int metadata) {
-        if (metadata == 1) return true;
-        return false;
+        return metadata == 1;
     }
 
     @Override

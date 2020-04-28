@@ -60,13 +60,13 @@ public class ParticleGenPacket implements IMessage {
                 //System.out.println(buttonId + " " + value);
                 switch (message.buttonId) {
                     case 0://red
-                        gen.red = (int) message.value;
+                        gen.red = message.value;
                         break;
                     case 1://green
-                        gen.green = (int) message.value;
+                        gen.green = message.value;
                         break;
                     case 2://blue
-                        gen.blue = (int) message.value;
+                        gen.blue = message.value;
                         break;
                     case 3://mx
                         gen.motion_x = (float) message.value / 1000F;
@@ -78,13 +78,13 @@ public class ParticleGenPacket implements IMessage {
                         gen.motion_z = (float) message.value / 1000F;
                         break;
                     case 6://ged
-                        gen.red = (int) message.value;
+                        gen.red = message.value;
                         break;
                     case 7://green
-                        gen.green = (int) message.value;
+                        gen.green = message.value;
                         break;
                     case 8://blue
-                        gen.blue = (int) message.value;
+                        gen.blue = message.value;
                         break;
                     case 9://mx
                         gen.motion_x = (float) message.value / 1000F;
@@ -96,13 +96,13 @@ public class ParticleGenPacket implements IMessage {
                         gen.motion_z = (float) message.value / 1000F;
                         break;
                     case 12://red
-                        gen.random_red = (int) message.value;
+                        gen.random_red = message.value;
                         break;
                     case 13://green
-                        gen.random_green = (int) message.value;
+                        gen.random_green = message.value;
                         break;
                     case 14://blue
-                        gen.random_blue = (int) message.value;
+                        gen.random_blue = message.value;
                         break;
                     case 15://mx
                         gen.random_motion_x = (float) message.value / 1000F;
@@ -114,13 +114,13 @@ public class ParticleGenPacket implements IMessage {
                         gen.random_motion_z = (float) message.value / 1000F;
                         break;
                     case 18://ged
-                        gen.random_red = (int) message.value;
+                        gen.random_red = message.value;
                         break;
                     case 19://green
-                        gen.random_green = (int) message.value;
+                        gen.random_green = message.value;
                         break;
                     case 20://blue
-                        gen.random_blue = (int) message.value;
+                        gen.random_blue = message.value;
                         break;
                     case 21://mx
                         gen.random_motion_x = (float) message.value / 1000F;
@@ -132,16 +132,16 @@ public class ParticleGenPacket implements IMessage {
                         gen.random_motion_z = (float) message.value / 1000F;
                         break;
                     case 24://Life +
-                        gen.life = (int) message.value;
+                        gen.life = message.value;
                         break;
                     case 25://Life -
-                        gen.life = (int) message.value;
+                        gen.life = message.value;
                         break;
                     case 26://RLife +
-                        gen.random_life = (int) message.value;
+                        gen.random_life = message.value;
                         break;
                     case 27://RLife -
-                        gen.random_life = (int) message.value;
+                        gen.random_life = message.value;
                         break;
                     case 28://Size +
                         gen.scale = (float) message.value / 100F;
@@ -156,10 +156,10 @@ public class ParticleGenPacket implements IMessage {
                         gen.random_scale = (float) message.value / 100F;
                         break;
                     case 32://SX +
-                        gen.page = (int) message.value;
+                        gen.page = message.value;
                         break;
                     case 33://SX -
-                        gen.page = (int) message.value;
+                        gen.page = message.value;
                         break;
                     case 34://SX +
                         gen.spawn_x = (float) message.value / 100F;
@@ -198,22 +198,22 @@ public class ParticleGenPacket implements IMessage {
                         gen.random_spawn_z = (float) message.value / 100F;
                         break;
                     case 46://Delay -
-                        gen.spawn_rate = (int) message.value;
+                        gen.spawn_rate = message.value;
                         break;
                     case 47://Delay -
-                        gen.spawn_rate = (int) message.value;
+                        gen.spawn_rate = message.value;
                         break;
                     case 48://Fade -
-                        gen.fade = (int) message.value;
+                        gen.fade = message.value;
                         break;
                     case 49://Fade -
-                        gen.fade = (int) message.value;
+                        gen.fade = message.value;
                         break;
                     case 50://Collision -
-                        gen.collide = message.value == 0 ? false : true;
+                        gen.collide = message.value != 0;
                         break;
                     case 51://Particle Selected -
-                        gen.selected_particle = (int) message.value;
+                        gen.selected_particle = message.value;
                         break;
                     case 52://Gravity +
                         gen.gravity = (float) message.value / 1000F;
@@ -222,10 +222,10 @@ public class ParticleGenPacket implements IMessage {
                         gen.gravity = (float) message.value / 1000F;
                         break;
                     case 54://Info Page (3)
-                        gen.page = (int) message.value;
+                        gen.page = message.value;
                         break;
                     case 55://Back
-                        gen.page = (int) message.value;
+                        gen.page = message.value;
                         break;
                     case 58://Back
                         LogHelper.info(message.value);

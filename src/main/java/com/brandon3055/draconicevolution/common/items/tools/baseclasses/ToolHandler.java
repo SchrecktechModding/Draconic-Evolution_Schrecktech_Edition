@@ -191,7 +191,7 @@ public class ToolHandler {
                 entityLivingBase.motionY /= 2.0D;
                 entityLivingBase.motionZ /= 2.0D;
                 entityLivingBase.motionX -= d1 / (double) f1 * (double) f2;
-                entityLivingBase.motionY += (double) f2;
+                entityLivingBase.motionY += f2;
                 entityLivingBase.motionZ -= d0 / (double) f1 * (double) f2;
 
                 if (entityLivingBase.motionY > 0.4000000059604645D) {
@@ -243,7 +243,7 @@ public class ToolHandler {
                     entityLivingBase.motionY /= 2.0D;
                     entityLivingBase.motionZ /= 2.0D;
                     entityLivingBase.motionX -= d1 / (double) f1 * (double) f2;
-                    entityLivingBase.motionY += (double) f2;
+                    entityLivingBase.motionY += f2;
                     entityLivingBase.motionZ -= d0 / (double) f1 * (double) f2;
 
                     if (entityLivingBase.motionY > 0.4000000059604645D) {

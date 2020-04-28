@@ -19,7 +19,7 @@ public class TileWeatherController extends TileEntity implements IInventory {
     public int mode = 0;
     private final static boolean debug = DraconicEvolution.debug;
 
-    private ItemStack[] items;
+    private final ItemStack[] items;
     public int charges;
 
     public TileWeatherController() {

@@ -15,8 +15,8 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerUpgradeModifier extends ContainerDataSync {
     private static final Item[] CORES_INDEX = {ModItems.draconicCore, ModItems.wyvernCore, ModItems.awakenedCore, ModItems.chaoticCore};
-    private TileUpgradeModifier tile;
-    private EntityPlayer player;
+    private final TileUpgradeModifier tile;
+    private final EntityPlayer player;
     private boolean slotsActive = true;
 
     public ContainerUpgradeModifier(InventoryPlayer invPlayer, TileUpgradeModifier tile) {

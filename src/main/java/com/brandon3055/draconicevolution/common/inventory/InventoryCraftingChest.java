@@ -12,14 +12,14 @@ public class InventoryCraftingChest extends InventoryCrafting {
     /**
      * the width of the crafting inventory
      */
-    private int inventoryWidth;
+    private final int inventoryWidth;
 
     /**
      * Class containing the callbacks for the events on_GUIClosed and
      * on_CraftMaxtrixChanged.
      */
-    private Container eventHandler;
-    private TileDraconiumChest tile;
+    private final Container eventHandler;
+    private final TileDraconiumChest tile;
 
     public InventoryCraftingChest(Container par1Container, int size, int height, TileDraconiumChest tile) {
         super(par1Container, size, height);

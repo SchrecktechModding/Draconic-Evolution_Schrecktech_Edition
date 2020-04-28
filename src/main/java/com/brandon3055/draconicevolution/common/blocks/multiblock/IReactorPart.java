@@ -4,27 +4,27 @@ package com.brandon3055.draconicevolution.common.blocks.multiblock;
  * Created by Brandon on 23/7/2015.
  */
 public interface IReactorPart {
-    public static int RMODE_TEMP = 0;
-    public static int RMODE_TEMP_INV = 1;
-    public static int RMODE_FIELD = 2;
-    public static int RMODE_FIELD_INV = 3;
-    public static int RMODE_SAT = 4;
-    public static int RMODE_SAT_INV = 5;
-    public static int RMODE_FUEL = 6;
-    public static int RMODE_FUEL_INV = 7;
+    int RMODE_TEMP = 0;
+    int RMODE_TEMP_INV = 1;
+    int RMODE_FIELD = 2;
+    int RMODE_FIELD_INV = 3;
+    int RMODE_SAT = 4;
+    int RMODE_SAT_INV = 5;
+    int RMODE_FUEL = 6;
+    int RMODE_FUEL_INV = 7;
 
 
-    public MultiblockHelper.TileLocation getMaster();
+    MultiblockHelper.TileLocation getMaster();
 
-    public void shutDown();
+    void shutDown();
 
-    public boolean checkForMaster();
+    boolean checkForMaster();
 
-    public boolean isActive();
+    boolean isActive();
 
-    public String getRedstoneModeString();
+    String getRedstoneModeString();
 
-    public void changeRedstoneMode();
+    void changeRedstoneMode();
 
-    public int getRedstoneMode();
+    int getRedstoneMode();
 }

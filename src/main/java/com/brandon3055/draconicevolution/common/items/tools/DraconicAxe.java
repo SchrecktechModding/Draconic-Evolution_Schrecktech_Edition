@@ -174,10 +174,8 @@ public class DraconicAxe extends MiningTool implements IInventoryTool, IRenderTw
                     }
                 }
             }
-            if (leaves >= 3) return true;
+            return leaves >= 3;
         }
-
-        return false;
     }
 
     void chopTree(int X, int Y, int Z, EntityPlayer player, World world, ItemStack stack) {

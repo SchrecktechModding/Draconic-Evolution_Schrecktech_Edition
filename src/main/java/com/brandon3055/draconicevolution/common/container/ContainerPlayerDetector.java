@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 public class ContainerPlayerDetector extends Container {
 
-    private TilePlayerDetectorAdvanced tileDetector;
+    private final TilePlayerDetectorAdvanced tileDetector;
     private GUIPlayerDetector gui = null;
 
     public ContainerPlayerDetector(InventoryPlayer invPlayer, TilePlayerDetectorAdvanced tileDetector) {

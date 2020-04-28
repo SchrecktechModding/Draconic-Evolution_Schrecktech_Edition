@@ -14,8 +14,8 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerDissEnchanter extends Container {
 
-    private TileDissEnchanter tile;
-    private EntityPlayer player;
+    private final TileDissEnchanter tile;
+    private final EntityPlayer player;
     private ItemStack cachIn0;
     private ItemStack cachIn1;
     private ItemStack cachIn2;
@@ -79,8 +79,7 @@ public class ContainerDissEnchanter extends Container {
 
     private boolean isStackValidForInventory(ItemStack stack, int slot) {
         if (slot == 0 && EnchantmentHelper.getEnchantments(stack).size() > 0) return true;
-        if (slot == 1 && stack.getItem().equals(Items.book)) return true;
-        return false;
+        return slot == 1 && stack.getItem().equals(Items.book);
     }
 
     public class SlotBook extends Slot {

@@ -26,8 +26,8 @@ public class TileTestBlock extends TileEntity implements IEnergyHandler {
     public int maxInput = 100000000;
     public float modelRotation;
     //Use a map for the beam to each target (Target, Beam)
-    private ParticleEnergyBeam beam = null;
-    private ParticleEnergyField ring = null;
+    private final ParticleEnergyBeam beam = null;
+    private final ParticleEnergyField ring = null;
 
 
     @Override
@@ -102,7 +102,6 @@ public class TileTestBlock extends TileEntity implements IEnergyHandler {
 
     @Override
     public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate) {
-        ;
         if (from == UP) return 0;//return this.energy.extractEnergy(maxExtract, simulate);
         else return 0;
     }

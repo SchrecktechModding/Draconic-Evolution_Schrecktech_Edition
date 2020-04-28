@@ -12,8 +12,8 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerEnergyInfuser extends ContainerDataSync {
 
-    private TileEnergyInfuser tile;
-    private EntityPlayer player;
+    private final TileEnergyInfuser tile;
+    private final EntityPlayer player;
     private int lastTickEnergyStorage = -1;
 
     public ContainerEnergyInfuser(InventoryPlayer invPlayer, TileEnergyInfuser tile) {

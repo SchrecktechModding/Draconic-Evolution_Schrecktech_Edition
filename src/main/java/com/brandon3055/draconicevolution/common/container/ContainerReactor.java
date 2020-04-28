@@ -18,10 +18,10 @@ import java.util.Iterator;
  */
 public class ContainerReactor extends ContainerDataSync {
 
-    private TileReactorCore reactor;
-    private EntityPlayer player;
-    private GenericInventory ioSlots = new GenericInventory() {
-        private ItemStack[] items = new ItemStack[2];
+    private final TileReactorCore reactor;
+    private final EntityPlayer player;
+    private final GenericInventory ioSlots = new GenericInventory() {
+        private final ItemStack[] items = new ItemStack[2];
 
         @Override
         public ItemStack[] getStorage() {
@@ -215,7 +215,7 @@ public class ContainerReactor extends ContainerDataSync {
 
     public static class SlotInsert extends Slot {
         private int numberAllowed = -1;
-        private TileReactorCore reactor;
+        private final TileReactorCore reactor;
 
         public SlotInsert(IInventory iInventory, int iSlot, int x, int y, TileReactorCore reactor) {
             super(iInventory, iSlot, x, y);
@@ -244,7 +244,7 @@ public class ContainerReactor extends ContainerDataSync {
 
     public static class SlotExtract extends Slot {
 
-        private GenericInventory inventory;
+        private final GenericInventory inventory;
 
         public SlotExtract(GenericInventory iInventory, int iSlot, int x, int y) {
             super(iInventory, iSlot, x, y);

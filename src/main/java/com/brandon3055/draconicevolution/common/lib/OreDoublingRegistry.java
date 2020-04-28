@@ -17,8 +17,8 @@ import java.util.Map;
  * Created by Brandon on 2/11/2014.
  */
 public class OreDoublingRegistry {
-    private static Map<String, ItemStack> oreResults = new HashMap<String, ItemStack>();
-    private static String[] names = {"oreGold", "oreIron", "oreAluminum", "oreCopper", "oreLead", "oreSilver", "oreTin", "oreUranium", "orePlatinum", "oreNickel", "oreMithril", "oreCobalt", "oreArdite"};
+    private static final Map<String, ItemStack> oreResults = new HashMap<String, ItemStack>();
+    private static final String[] names = {"oreGold", "oreIron", "oreAluminum", "oreCopper", "oreLead", "oreSilver", "oreTin", "oreUranium", "orePlatinum", "oreNickel", "oreMithril", "oreCobalt", "oreArdite"};
     public static Map<String, ItemStack> resultOverrides = new HashMap<String, ItemStack>();
 
     public static void init() {
